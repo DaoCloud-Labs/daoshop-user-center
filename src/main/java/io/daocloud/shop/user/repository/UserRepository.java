@@ -4,6 +4,8 @@ import io.daocloud.shop.user.entity.UserEntity;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * @Package io.daocloud.shop.user.repository
  * @Classname UserController
@@ -16,4 +18,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<UserEntity,Long> {
+
+    Optional<UserEntity> findByUsernameAndPassword(String user,String password);
 }
